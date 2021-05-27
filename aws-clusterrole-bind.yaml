@@ -1,0 +1,17 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  annotations:
+     argocd.argoproj.io/sync-wave: "-2"
+  name: aws-ebs
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: aws-ebs
+subjects:
+- kind: ServiceAccount
+  name: ebs-csi-controller-sa
+  namespace: aws-ebs
+- kind: ServiceAccount
+  name: ebs-csi-node-sa
+  namespace: aws-ebs

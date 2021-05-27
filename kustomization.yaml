@@ -3,11 +3,13 @@ kind: Kustomization
 resources:
 - namespace.yaml
 - helm.yaml
+- aws-clusterrole-bind.yaml
+- aws-clusterrole.yaml
 - aws-ebs-storageclass.yaml
 - aws-ebs-snapshotclass.yaml
 - github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=v1.0.0
 
-namespace: aws-ebs-storage
+namespace: aws-ebs
 
 patchesJson6902:
 - target:
